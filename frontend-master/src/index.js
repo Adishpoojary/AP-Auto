@@ -19,6 +19,20 @@ if (token) {
     axios.defaults.headers.common['Authorization'] = "Bearer " + token;
 }
 
+// Global fetch override for ngrok
+const originalFetch = window.fetch;
+window.fetch = async function(...args) {
+    let [resource, config] = args;
+    if (!config) config = {};
+    if (!config.headers) config.headers = {};
+    if (config.headers instanceof Headers) {
+        config.headers.append('ngrok-skip-browser-warning', '69420');
+    } else {
+        config.headers['ngrok-skip-browser-warning'] = '69420';
+    }
+    return originalFetch(resource, config);
+};
+
 const store = createStore(
   reducers,
   applyMiddleware(ReduxThunk)

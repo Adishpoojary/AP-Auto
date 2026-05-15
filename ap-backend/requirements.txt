@@ -1,0 +1,14 @@
+# AP Rides Backend
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+python-jose[cryptography]
+python-multipart
+httpx
+python-socketio
+firebase-admin
+cloudinary
+pydantic
+python-dotenv
+alembic

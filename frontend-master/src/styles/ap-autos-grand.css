@@ -1,0 +1,95 @@
+/* ==== AP Autos: Clean Professional Theme ==== */
+/* Light mode by default, dark mode via .ap-dark-mode class on body */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body, html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* ── Sidebar Branding ─── */
+nav[class*="Sidebar_root"] header {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+nav[class*="Sidebar_root"] img {
+  max-width: 60px;
+  border-radius: 8px;
+}
+
+/* ── Footer Branding ─── */
+footer span, footer a {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ═══════════════════════════════════════════════
+   DARK MODE (toggle via body.ap-dark-mode)
+   ═══════════════════════════════════════════════ */
+body.ap-dark-mode {
+  background-color: #0d1117 !important;
+  color: #c9d1d9 !important;
+}
+
+body.ap-dark-mode div[class*="Layout_wrap"],
+body.ap-dark-mode main[class*="Layout_content"] {
+  background-color: #0d1117 !important;
+}
+
+body.ap-dark-mode nav[class*="Sidebar_root"] {
+  background: #161b22 !important;
+  border-right: 1px solid #30363d !important;
+}
+
+body.ap-dark-mode nav[class*="Sidebar_root"] header {
+  background: #0d1117 !important;
+  border-bottom: 1px solid #30363d !important;
+}
+
+body.ap-dark-mode nav[class*="Sidebar_root"] a {
+  color: #8b949e !important;
+}
+
+body.ap-dark-mode nav[class*="Sidebar_root"] a:hover {
+  background-color: rgba(255, 107, 107, 0.1) !important;
+  color: #ff6b6b !important;
+}
+
+body.ap-dark-mode nav[class*="Header_root"] {
+  background: #161b22 !important;
+  border-bottom: 1px solid #30363d !important;
+}
+
+body.ap-dark-mode nav[class*="Header_root"] span,
+body.ap-dark-mode nav[class*="Header_root"] div {
+  color: #c9d1d9 !important;
+}
+
+body.ap-dark-mode .widget, body.ap-dark-mode .card {
+  background-color: #161b22 !important;
+  border: 1px solid #30363d !important;
+  color: #c9d1d9 !important;
+}
+
+body.ap-dark-mode h1, body.ap-dark-mode h2, body.ap-dark-mode h3,
+body.ap-dark-mode h4, body.ap-dark-mode h5, body.ap-dark-mode h6 {
+  color: #ffffff !important;
+}
+
+body.ap-dark-mode table {
+  color: #c9d1d9 !important;
+}
+body.ap-dark-mode table thead th {
+  border-bottom: 1px solid #30363d !important;
+  color: #8b949e !important;
+  background-color: #0d1117 !important;
+}
+body.ap-dark-mode table tbody td {
+  border-top: 1px solid #30363d !important;
+  background-color: #161b22 !important;
+}
+
+body.ap-dark-mode input, body.ap-dark-mode select, body.ap-dark-mode textarea {
+  background-color: #0d1117 !important;
+  border: 1px solid #30363d !important;
+  color: #c9d1d9 !important;
+}

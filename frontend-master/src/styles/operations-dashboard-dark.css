@@ -1,0 +1,253 @@
+/* /frontend/src/styles/operations-dashboard-dark.css */
+
+.operations-dark-dashboard {
+  background: #0b1220;
+  min-height: 100vh;
+  color: #f1f5f9;
+  padding: 20px;
+}
+
+/* Text overrides */
+.operations-dark-dashboard h1, 
+.operations-dark-dashboard h2, 
+.operations-dark-dashboard h3, 
+.operations-dark-dashboard h4, 
+.operations-dark-dashboard h5, 
+.operations-dark-dashboard h6 {
+  color: #f8fafc !important;
+}
+
+.operations-dark-dashboard .breadcrumb-item,
+.operations-dark-dashboard .breadcrumb-item.active {
+  color: #cbd5e1 !important;
+}
+.operations-dark-dashboard .breadcrumb-item + .breadcrumb-item::before {
+  color: #64748b !important;
+}
+
+/* Dashboard Panels */
+.operations-dark-dashboard [class*="widget"] {
+  background: #121a2b !important;
+  border-radius: 12px;
+  border: 1px solid #243048 !important;
+  padding: 20px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  color: #e2e8f0;
+}
+
+.operations-dark-dashboard [class*="widget"] header,
+.operations-dark-dashboard [class*="widget"] h5,
+.operations-dark-dashboard [class*="widget"] .widget-title {
+  color: #f8fafc !important;
+}
+
+.operations-dark-dashboard .text-muted {
+  color: #94a3b8 !important;
+}
+.operations-dark-dashboard .text-dark {
+  color: #f1f5f9 !important;
+}
+
+.operations-dark-dashboard table td {
+  color: #e2e8f0 !important;
+}
+
+/* KPI Gradient Cards */
+.operations-dark-dashboard .ops-kpi-container [class*="widget"] {
+  border: none !important;
+  color: #fff !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6) !important;
+}
+
+/* Bookings Today */
+.operations-dark-dashboard .ops-kpi-container > div > div:nth-child(1) [class*="widget"] {
+  background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+}
+/* Trips Ongoing */
+.operations-dark-dashboard .ops-kpi-container > div > div:nth-child(2) [class*="widget"] {
+  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+}
+/* Active Drivers */
+.operations-dark-dashboard .ops-kpi-container > div > div:nth-child(3) [class*="widget"] {
+  background: linear-gradient(135deg, #334155, #1e293b) !important;
+}
+/* Delayed Trips */
+.operations-dark-dashboard .ops-kpi-container > div > div:nth-child(4) [class*="widget"] {
+  background: linear-gradient(135deg, #f97316, #ea580c) !important;
+}
+/* Revenue Today */
+.operations-dark-dashboard .ops-kpi-container > div > div:nth-child(5) [class*="widget"] {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+}
+
+/* KPI Card Text & Icon Contrast Fixes */
+.operations-dark-dashboard .metric-card-title {
+  color: rgba(255,255,255,0.9) !important;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.operations-dark-dashboard .metric-card-value {
+  color: #ffffff !important;
+  font-size: 26px;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.operations-dark-dashboard .metric-card-icon {
+  color: #ffffff !important;
+  opacity: 0.9;
+  font-size: 26px;
+}
+
+.operations-dark-dashboard .metric-icon-wrapper {
+  background: rgba(255,255,255,0.12);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3-Column Layout */
+.operations-dark-dashboard [class*="dashboardGrid"] {
+  display: grid !important;
+  grid-template-columns: 320px 1fr 320px !important;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+@media (max-width: 1200px) {
+  .operations-dark-dashboard [class*="dashboardGrid"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .operations-dark-dashboard [class*="dashboardGrid"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+/* Live Map Panel */
+.operations-dark-dashboard .live-map-panel {
+  background: #0f172a !important;
+  border-radius: 14px;
+  border: 1px solid #334155;
+  overflow: hidden;
+  height: 420px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.operations-dark-dashboard .live-map-panel > div {
+  height: 100% !important;
+}
+
+/* Metric Badges */
+.operations-dark-dashboard .badge-success {
+  background-color: #22c55e !important;
+  color: #fff !important;
+}
+.operations-dark-dashboard .badge-warning {
+  background-color: #f59e0b !important;
+  color: #fff !important;
+}
+.operations-dark-dashboard .badge-danger {
+  background-color: #ef4444 !important;
+  color: #fff !important;
+}
+.operations-dark-dashboard .badge-info {
+  background-color: #3b82f6 !important;
+  color: #fff !important;
+}
+
+/* Fix Live Map */
+.live-map-panel .leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.operations-dark-dashboard .ops-map-infowindow,
+.operations-dark-dashboard .ops-map-infowindow h6,
+.operations-dark-dashboard .ops-map-infowindow p,
+.operations-dark-dashboard .ops-map-infowindow div {
+  color: #1f2937 !important;
+}
+.operations-dark-dashboard .ops-map-infowindow {
+  background: #fff !important;
+}
+.operations-dark-dashboard .ops-map-infowindow .badge.badge-light,
+.operations-dark-dashboard .ops-map-infowindow .badge.badge-secondary {
+  color: #1f2937 !important;
+}
+
+/* Active Trips Panel */
+.operations-dark-dashboard .active-trips-panel {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.active-trips-table-container {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.active-trips-table-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.active-trips-table-container::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 10px;
+}
+
+/* Trips Ongoing panel (drawer) — dark mode */
+.operations-dark-dashboard .ongoing-panel-trips {
+  color: #e2e8f0;
+}
+.operations-dark-dashboard .ongoing-panel-thead th {
+  background: #0f172a !important;
+  color: #94a3b8 !important;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  border-bottom: 1px solid #334155 !important;
+  padding: 10px 12px;
+}
+.operations-dark-dashboard .ongoing-panel-live-table tbody td {
+  color: #e2e8f0 !important;
+  vertical-align: middle;
+  border-bottom: 1px solid #1e293b !important;
+  padding: 10px 12px;
+}
+.operations-dark-dashboard .ongoing-panel-live-table tbody tr:hover td {
+  background: rgba(30, 41, 59, 0.6) !important;
+}
+.operations-dark-dashboard .ongoing-panel-trips .text-muted {
+  color: #94a3b8 !important;
+}
+.operations-dark-dashboard .ongoing-panel-trips .font-weight-bold {
+  color: #f8fafc !important;
+}
+.operations-dark-dashboard .ongoing-panel-trips .badge-primary {
+  background: #3b82f6 !important;
+  color: #fff !important;
+}
+.operations-dark-dashboard .ongoing-panel-trips .badge-danger {
+  background: #ef4444 !important;
+  color: #fff !important;
+}
+.operations-dark-dashboard .ongoing-panel-trips .text-success {
+  color: #22c55e !important;
+}
+.operations-dark-dashboard .ongoing-panel-trips .text-danger {
+  color: #f87171 !important;
+}
+
+@keyframes opsIdleDriversPulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}

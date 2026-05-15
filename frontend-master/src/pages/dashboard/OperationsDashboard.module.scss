@@ -1,0 +1,142 @@
+@import '../../styles/app';
+
+.root {
+  animation: fade-in 0.4s ease-in-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  // Consistent card styles
+  :global(.widget) {
+    border-radius: 10px;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    margin-bottom: 0; 
+    border: none;
+
+    header, :global(h5), :global(.widget-title) {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+      transform: translateY(-2px);
+    }
+  }
+
+  // 3-Column Grid setup
+  .dashboardGrid {
+    display: grid;
+    grid-template-columns: 3fr 5fr 3fr;
+    gap: 16px;
+    margin-top: 24px;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr 1fr;
+      .centerColumn {
+        grid-column: 1 / -1;
+        order: -1; 
+      }
+    }
+
+    @media (max-width: 991px) {
+      display: flex;
+      flex-direction: column;
+      .centerColumn {
+        order: -1;
+      }
+    }
+  }
+
+  .leftColumn, .centerColumn, .rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+  }
+
+  // Status Colors overriding logic if needed
+  :global(.badge-success) {
+    background-color: $success;
+  }
+  :global(.badge-warning) {
+    background-color: $warning;
+    color: $text-color;
+  }
+  :global(.badge-danger) {
+    background-color: $danger;
+  }
+  :global(.badge-info) {
+    background-color: $info;
+  }
+
+  // Smart Attention System Alerts
+  :global {
+    .alert-card {
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .alert-unassigned {
+      border: 1px solid rgba(245, 158, 11, 0.4) !important;
+      animation: pulseGlowOrange 2s infinite ease-in-out;
+    }
+    .alert-delayed {
+      border: 1px solid rgba(239, 68, 68, 0.4) !important;
+      animation: pulseGlowRed 2s infinite ease-in-out;
+    }
+    .alert-flagged {
+      border: 1px solid rgba(234, 179, 8, 0.4) !important;
+      animation: pulseGlowYellow 2s infinite ease-in-out;
+    }
+    .alert-escalation {
+      border: 1px solid rgba(220, 38, 38, 0.6) !important;
+      animation: pulseGlowStrongRed 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlowOrange {
+      0% { box-shadow: 0 0 6px rgba(245, 158, 11, 0.2); }
+      50% { box-shadow: 0 0 16px rgba(245, 158, 11, 0.5); }
+      100% { box-shadow: 0 0 6px rgba(245, 158, 11, 0.2); }
+    }
+    @keyframes pulseGlowRed {
+      0% { box-shadow: 0 0 6px rgba(239, 68, 68, 0.2); }
+      50% { box-shadow: 0 0 16px rgba(239, 68, 68, 0.5); }
+      100% { box-shadow: 0 0 6px rgba(239, 68, 68, 0.2); }
+    }
+    @keyframes pulseGlowYellow {
+      0% { box-shadow: 0 0 6px rgba(234, 179, 8, 0.2); }
+      50% { box-shadow: 0 0 16px rgba(234, 179, 8, 0.5); }
+      100% { box-shadow: 0 0 6px rgba(234, 179, 8, 0.2); }
+    }
+    @keyframes pulseGlowStrongRed {
+      0% { box-shadow: 0 0 8px rgba(220, 38, 38, 0.4); }
+      50% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.7); }
+      100% { box-shadow: 0 0 8px rgba(220, 38, 38, 0.4); }
+    }
+  }
+
+  // Dark mode overrides for alerts
+  :global(.operations-dark-dashboard) {
+    :global {
+      .alert-unassigned {
+        border-color: rgba(245, 158, 11, 0.6) !important;
+      }
+      .alert-delayed {
+        border-color: rgba(239, 68, 68, 0.6) !important;
+      }
+      .alert-flagged {
+        border-color: rgba(234, 179, 8, 0.6) !important;
+      }
+      .alert-escalation {
+        border-color: rgba(220, 38, 38, 0.8) !important;
+      }
+    }
+  }
+}

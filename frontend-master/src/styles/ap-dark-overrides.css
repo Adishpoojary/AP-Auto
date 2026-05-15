@@ -1,0 +1,444 @@
+/* ═══════════════════════════════════════════════════════
+   AP Autos — Global Dark Theme Overrides
+   Applies dark theme to ALL framework/reactstrap components
+   ═══════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ap-bg: #0d1117;
+  --ap-surface: #111827;
+  --ap-surface-2: #1a1f2e;
+  --ap-border: rgba(255,255,255,0.07);
+  --ap-text: #f1f5f9;
+  --ap-text-muted: #94a3b8;
+  --ap-text-dim: #475569;
+  --ap-accent: #f59e0b;
+  --ap-green: #10b981;
+  --ap-blue: #3b82f6;
+  --ap-purple: #8b5cf6;
+  --ap-red: #ef4444;
+}
+
+/* ── Global Body ─── */
+body {
+  background: var(--ap-bg) !important;
+  color: var(--ap-text) !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+}
+
+/* ── Layout Wrapper (Layout.module.scss overrides) ─── */
+div[class*="Layout_root"],
+div[class*="Layout_wrap"],
+main[class*="Layout_content"] {
+  background: var(--ap-bg) !important;
+  background-color: var(--ap-bg) !important;
+}
+
+/* ── Header Bar ─── */
+nav[class*="Header_root"],
+.navbar {
+  background: #0f172a !important;
+  border-bottom: 1px solid var(--ap-border) !important;
+  box-shadow: none !important;
+}
+
+.navbar .text-body,
+.navbar .nav-link,
+.navbar i,
+.navbar span {
+  color: var(--ap-text-muted) !important;
+}
+
+/* City/Date selector pills in header */
+.city-selector-toggle,
+.date-filter-toggle {
+  background: var(--ap-surface-2) !important;
+  border: 1px solid var(--ap-border) !important;
+}
+.city-selector-toggle span,
+.date-filter-toggle span {
+  color: var(--ap-text) !important;
+}
+.city-selector-toggle span:last-of-type,
+.date-filter-toggle span:last-of-type {
+  color: var(--ap-text-dim) !important;
+}
+
+/* Header buttons */
+nav[class*="Header_root"] button,
+.navbar button {
+  background: var(--ap-surface-2) !important;
+  border: 1px solid var(--ap-border) !important;
+  color: var(--ap-text-muted) !important;
+}
+
+/* ── Sidebar (already dark via Sidebar.module.scss) ─── */
+
+/* ── Footer ─── */
+footer, div[class*="Footer"] {
+  background: var(--ap-bg) !important;
+  border-top: 1px solid var(--ap-border) !important;
+  color: var(--ap-text-dim) !important;
+}
+footer a { color: var(--ap-accent) !important; }
+
+/* ── Widget Component ─── */
+section[class*="Widget_widget"] {
+  background: var(--ap-surface) !important;
+  border: 1px solid var(--ap-border) !important;
+  border-radius: 14px !important;
+  color: var(--ap-text) !important;
+}
+section[class*="Widget_widget"] header,
+section[class*="Widget_widget"] h5 {
+  color: var(--ap-text) !important;
+}
+
+/* ── Breadcrumbs ─── */
+.breadcrumb {
+  background: transparent !important;
+  color: var(--ap-text-dim) !important;
+}
+.breadcrumb-item, .breadcrumb-item a {
+  color: var(--ap-text-dim) !important;
+}
+.breadcrumb-item.active {
+  color: var(--ap-text-muted) !important;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--ap-text-dim) !important;
+}
+
+/* ── Reactstrap Tables ─── */
+.table, table {
+  color: var(--ap-text) !important;
+}
+.table thead th {
+  background: var(--ap-surface-2) !important;
+  color: var(--ap-text-muted) !important;
+  border-bottom: 1px solid var(--ap-border) !important;
+  border-top: none !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+.table tbody td {
+  border-color: var(--ap-border) !important;
+  color: var(--ap-text) !important;
+  vertical-align: middle;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background: rgba(255,255,255,0.02) !important;
+}
+.table-hover tbody tr:hover,
+.table tbody tr:hover {
+  background: rgba(255,255,255,0.04) !important;
+}
+
+/* ── Reactstrap Buttons ─── */
+.btn-success {
+  background: var(--ap-accent) !important;
+  border-color: var(--ap-accent) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+}
+.btn-default, .btn-secondary, .btn-light {
+  background: var(--ap-surface-2) !important;
+  border: 1px solid var(--ap-border) !important;
+  color: var(--ap-text-muted) !important;
+}
+
+/* ── Reactstrap Badge ─── */
+.badge-success { background: rgba(16,185,129,0.15) !important; color: var(--ap-green) !important; border: 1px solid rgba(16,185,129,0.2); }
+.badge-warning { background: rgba(245,158,11,0.15) !important; color: var(--ap-accent) !important; border: 1px solid rgba(245,158,11,0.2); }
+.badge-danger { background: rgba(239,68,68,0.15) !important; color: var(--ap-red) !important; border: 1px solid rgba(239,68,68,0.2); }
+.badge-info { background: rgba(59,130,246,0.15) !important; color: var(--ap-blue) !important; }
+.badge-secondary { background: rgba(148,163,184,0.15) !important; color: var(--ap-text-muted) !important; }
+
+/* ── Reactstrap Inputs ─── */
+.form-control, input[type="text"], input[type="search"], input[type="date"] {
+  background: var(--ap-surface-2) !important;
+  border: 1px solid var(--ap-border) !important;
+  color: var(--ap-text) !important;
+  border-radius: 8px;
+}
+.form-control::placeholder { color: var(--ap-text-dim) !important; }
+.form-control:focus {
+  border-color: var(--ap-accent) !important;
+  box-shadow: 0 0 0 2px rgba(245,158,11,0.15) !important;
+}
+.input-group { background: var(--ap-surface-2) !important; border-radius: 8px; }
+.input-group-text { background: var(--ap-surface-2) !important; border-color: var(--ap-border) !important; color: var(--ap-text-muted) !important; }
+
+/* ── Reactstrap Dropdowns ─── */
+.dropdown-menu {
+  background: var(--ap-surface) !important;
+  border: 1px solid var(--ap-border) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
+}
+.dropdown-item {
+  color: var(--ap-text-muted) !important;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+  background: rgba(255,255,255,0.06) !important;
+  color: var(--ap-text) !important;
+}
+.dropdown-item a { color: inherit !important; }
+.dropdown-divider { border-color: var(--ap-border) !important; }
+
+/* ── Reactstrap Cards ─── */
+.card {
+  background: var(--ap-surface) !important;
+  border: 1px solid var(--ap-border) !important;
+  color: var(--ap-text) !important;
+}
+
+/* ── Alert ─── */
+.alert-danger {
+  background: rgba(239,68,68,0.1) !important;
+  border-color: rgba(239,68,68,0.2) !important;
+  color: #fca5a5 !important;
+}
+
+/* ── Headings ─── */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ap-text) !important;
+}
+
+/* ── Text utilities ─── */
+.text-muted { color: var(--ap-text-dim) !important; }
+.text-danger { color: var(--ap-red) !important; }
+
+/* ── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.14); }
+
+/* ═══════════════════════════════════════════════════════
+   BOOKINGS PAGE — Dark Overrides
+   ═══════════════════════════════════════════════════════ */
+div[class*="Bookings_root"] {
+  background: var(--ap-bg) !important;
+}
+div[class*="Bookings_header"] {
+  background: var(--ap-surface) !important;
+  border-bottom-color: var(--ap-border) !important;
+  border-color: var(--ap-border) !important;
+  box-shadow: none !important;
+}
+h1[class*="Bookings_title"] { color: var(--ap-text) !important; }
+div[class*="Bookings_titleIcon"] {
+  background: linear-gradient(135deg, var(--ap-accent), #d97706) !important;
+}
+span[class*="Bookings_countBadge"] {
+  background: var(--ap-surface-2) !important;
+  color: var(--ap-text-muted) !important;
+}
+p[class*="Bookings_subtitle"] { color: var(--ap-text-dim) !important; }
+
+/* Filter section */
+div[class*="Bookings_filterSection"] {
+  background: var(--ap-surface) !important;
+  border-color: var(--ap-border) !important;
+  box-shadow: none !important;
+}
+button[class*="Bookings_filterTab"] {
+  background: var(--ap-surface-2) !important;
+  color: var(--ap-text-muted) !important;
+  border-color: transparent !important;
+}
+button[class*="Bookings_filterTab"][class*="active"] {
+  border-color: currentColor !important;
+}
+/* Filter tab active states - dark versions */
+button[class*="Bookings_filterTab"][class*="all"][class*="active"] {
+  background: rgba(59,130,246,0.12) !important; color: var(--ap-blue) !important;
+}
+button[class*="Bookings_filterTab"][class*="pending"][class*="active"] {
+  background: rgba(245,158,11,0.12) !important; color: var(--ap-accent) !important;
+}
+button[class*="Bookings_filterTab"][class*="completed"][class*="active"] {
+  background: rgba(16,185,129,0.12) !important; color: var(--ap-green) !important;
+}
+button[class*="Bookings_filterTab"][class*="cancelled"][class*="active"] {
+  background: rgba(239,68,68,0.12) !important; color: var(--ap-red) !important;
+}
+button[class*="Bookings_filterTab"][class*="modified"][class*="active"] {
+  background: rgba(148,163,184,0.12) !important; color: var(--ap-text-muted) !important;
+}
+button[class*="Bookings_filterTab"][class*="hourly"][class*="active"] {
+  background: rgba(139,92,246,0.12) !important; color: var(--ap-purple) !important;
+}
+
+/* Search */
+div[class*="Bookings_searchInputGroup"] {
+  background: var(--ap-surface-2) !important;
+  border-color: var(--ap-border) !important;
+}
+div[class*="Bookings_searchInputGroup"]:focus-within {
+  border-color: var(--ap-accent) !important;
+  box-shadow: 0 0 0 2px rgba(245,158,11,0.12) !important;
+}
+input[class*="Bookings_searchInput"] {
+  color: var(--ap-text) !important;
+  background: transparent !important;
+  border: none !important;
+}
+input[class*="Bookings_searchInput"]::placeholder { color: var(--ap-text-dim) !important; }
+span[class*="Bookings_searchIcon"] { color: var(--ap-text-dim) !important; }
+
+/* Table card */
+div[class*="Bookings_tableCard"] {
+  background: var(--ap-surface) !important;
+  border-color: var(--ap-border) !important;
+  box-shadow: none !important;
+}
+table[class*="Bookings_dataTable"] thead {
+  background: var(--ap-surface-2) !important;
+}
+table[class*="Bookings_dataTable"] thead th {
+  background: var(--ap-surface-2) !important;
+  color: var(--ap-text-dim) !important;
+  border-bottom-color: var(--ap-border) !important;
+}
+table[class*="Bookings_dataTable"] thead th i { color: var(--ap-text-dim) !important; }
+table[class*="Bookings_dataTable"] tbody tr {
+  border-bottom-color: var(--ap-border) !important;
+}
+table[class*="Bookings_dataTable"] tbody tr:hover {
+  background: rgba(255,255,255,0.03) !important;
+}
+table[class*="Bookings_dataTable"] tbody td {
+  color: var(--ap-text-muted) !important;
+}
+/* Booking cell overrides */
+span[class*="Bookings_idBadge"] {
+  background: rgba(59,130,246,0.12) !important;
+  color: var(--ap-blue) !important;
+  border-color: rgba(59,130,246,0.2) !important;
+}
+span[class*="Bookings_customerName"] { color: var(--ap-text) !important; }
+span[class*="Bookings_customerPhone"] { color: var(--ap-text-dim) !important; }
+
+/* Booking status badges dark */
+span[class*="Bookings_statusBadge"][class*="pending"] {
+  background: rgba(245,158,11,0.12) !important; color: var(--ap-accent) !important;
+}
+span[class*="Bookings_statusBadge"][class*="completed"] {
+  background: rgba(16,185,129,0.12) !important; color: var(--ap-green) !important;
+}
+span[class*="Bookings_statusBadge"][class*="cancelled"] {
+  background: rgba(239,68,68,0.12) !important; color: var(--ap-red) !important;
+}
+span[class*="Bookings_statusBadge"][class*="confirmed"],
+span[class*="Bookings_statusBadge"][class*="assigned"] {
+  background: rgba(59,130,246,0.12) !important; color: var(--ap-blue) !important;
+}
+
+/* Bookings buttons */
+button[class*="Bookings_btnNewBooking"] {
+  background: linear-gradient(135deg, var(--ap-accent), #d97706) !important;
+  color: #000 !important;
+}
+button[class*="Bookings_refreshBtn"] {
+  background: var(--ap-surface-2) !important;
+  border-color: var(--ap-border) !important;
+  color: var(--ap-text-muted) !important;
+}
+button[class*="Bookings_modifyBtn"] {
+  background: rgba(59,130,246,0.12) !important;
+  color: var(--ap-blue) !important;
+  border: 1px solid rgba(59,130,246,0.2) !important;
+}
+button[class*="Bookings_cancelBtn"] {
+  background: rgba(239,68,68,0.12) !important;
+  color: var(--ap-red) !important;
+  border: 1px solid rgba(239,68,68,0.2) !important;
+}
+
+/* Empty/loading states */
+div[class*="Bookings_emptyState"],
+div[class*="Bookings_loadingState"],
+div[class*="Bookings_errorState"] {
+  color: var(--ap-text-dim) !important;
+}
+div[class*="Bookings_emptyState"] h3,
+div[class*="Bookings_errorState"] h3 { color: var(--ap-text-muted) !important; }
+div[class*="Bookings_emptyIcon"] {
+  background: var(--ap-surface-2) !important;
+  color: var(--ap-text-dim) !important;
+}
+
+/* Pagination */
+div[class*="Bookings_pagination"] {
+  border-top: 1px solid var(--ap-border) !important;
+}
+button[class*="Bookings_pageBtn"] {
+  background: var(--ap-surface-2) !important;
+  border-color: var(--ap-border) !important;
+  color: var(--ap-text-muted) !important;
+}
+span[class*="Bookings_pageInfo"] { color: var(--ap-text-dim) !important; }
+
+/* Modal overlay */
+div[class*="Bookings_modalOverlay"] {
+  background: rgba(0,0,0,0.7) !important;
+}
+div[class*="Bookings_modalContent"] {
+  background: var(--ap-surface) !important;
+  border: 1px solid var(--ap-border) !important;
+  color: var(--ap-text) !important;
+}
+
+/* Amount cell dark */
+div[class*="Bookings_amountCell"][class*="unpaid"] {
+  background: rgba(239,68,68,0.12) !important;
+}
+div[class*="Bookings_amountCell"][class*="paid"] {
+  background: rgba(16,185,129,0.12) !important;
+}
+div[class*="Bookings_amountCell"][class*="estimate"] {
+  background: rgba(245,158,11,0.12) !important;
+}
+div[class*="Bookings_amountCell"] div[class*="mainAmount"] {
+  color: var(--ap-text) !important;
+}
+
+/* Vehicle/equipment badges */
+span[class*="Bookings_vehicleBadge"],
+span[class*="Bookings_equipmentBadge"] {
+  background: rgba(99,102,241,0.12) !important;
+  color: #818cf8 !important;
+}
+span[class*="Bookings_hourlyBadge"],
+span[class*="Bookings_durationBadge"] {
+  background: rgba(245,158,11,0.12) !important;
+  color: var(--ap-accent) !important;
+  border-color: rgba(245,158,11,0.2) !important;
+}
+
+/* Route cell */
+div[class*="Bookings_routeText"] { color: var(--ap-text-muted) !important; }
+span[class*="Bookings_jobSiteLabel"] { color: var(--ap-accent) !important; }
+
+/* Time cell */
+div[class*="Bookings_timeCell"] { color: var(--ap-text-muted) !important; }
+div[class*="Bookings_mainTime"] { color: var(--ap-text-muted) !important; }
+div[class*="Bookings_subTime"] { color: var(--ap-text-dim) !important; }
+
+/* ═══════════════════════════════════════════════════════
+   DRIVER PAGE — Widget/Table Dark Overrides
+   ═══════════════════════════════════════════════════════ */
+/* "Add New Driver" button */
+.btn-success.btn-sm, a.btn-success {
+  background: var(--ap-accent) !important;
+  border-color: var(--ap-accent) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+}
+
+/* ── Payments Page placeholder ─── */
+/* Will be styled via Widget component overrides above */

@@ -1,0 +1,45 @@
+@import '../../styles/app';
+
+.root {
+  :global {
+    .icon-list {
+      margin-top: 1rem;
+    }
+
+    .icon-list-item {
+      height: 32px;
+      font-size: 14px;
+      line-height: 32px;
+
+      > a {
+        color: $text-color;
+        text-decoration: none;
+      }
+
+      .bi,
+      .fa,
+      .fi {
+        width: 32px;
+        margin-right: 10px;
+      }
+
+      &:hover {
+        .bi,
+        .fa,
+        .fi {
+          font-size: 28px;
+          top: 2px;
+        }
+
+        .fa,
+        .fi {
+          vertical-align: -5px;
+        }
+
+        .bi {
+          vertical-align: -6px;
+        }
+      }
+    }
+  }
+}

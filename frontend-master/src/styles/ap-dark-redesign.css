@@ -1,0 +1,745 @@
+/* ================================================================
+   AP Autos — Dark Redesign Design System
+   Complete dark-theme stylesheet for the admin dashboard.
+   Background #0d1117 · Surface #111827 · Accent Amber #f59e0b
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── CSS Variables (Design Tokens) ─── */
+:root {
+  --ap-bg:         #0d1117;
+  --ap-surface:    #111827;
+  --ap-surface-2:  #1a2332;
+  --ap-border:     rgba(255,255,255,0.07);
+  --ap-border-2:   rgba(255,255,255,0.12);
+
+  --ap-accent:     #f59e0b;
+  --ap-accent-dim: rgba(245,158,11,0.12);
+
+  --ap-text:       #e2e8f0;
+  --ap-text-muted: #94a3b8;
+  --ap-text-dim:   #64748b;
+
+  --ap-green:      #22c55e;
+  --ap-red:        #ef4444;
+  --ap-blue:       #3b82f6;
+  --ap-purple:     #8b5cf6;
+  --ap-pink:       #ec4899;
+  --ap-cyan:       #06b6d4;
+  --ap-amber:      #f59e0b;
+
+  --ap-radius:     12px;
+  --ap-radius-sm:  8px;
+  --ap-radius-pill: 999px;
+
+  --ap-sidebar-w:  240px;
+}
+
+/* ── Reset & Base ─── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body, html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  background: var(--ap-bg) !important;
+  color: var(--ap-text) !important;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Layout ─── */
+.ap-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--ap-bg);
+}
+
+.ap-main {
+  margin-left: 0;
+  padding-left: var(--ap-sidebar-w);
+  min-height: 100vh;
+  width: 100%;
+  background: var(--ap-bg);
+  overflow-x: hidden;
+}
+
+/* Override ALL framework layout wrappers — aggressively kill light backgrounds */
+div[class*="Layout_wrap"],
+div[class*="Layout_content"],
+main[class*="Layout_content"],
+div[class*="Layout_root"] {
+  background: var(--ap-bg) !important;
+  background-color: var(--ap-bg) !important;
+}
+
+/* Kill Bootstrap & framework widget/card backgrounds */
+.widget,
+div[class*="widget"],
+div[class*="Widget"],
+.card,
+.card-body,
+.card-header,
+.card-footer {
+  background: var(--ap-surface) !important;
+  background-color: var(--ap-surface) !important;
+  border-color: var(--ap-border) !important;
+  color: var(--ap-text) !important;
+}
+
+/* Kill any lingering white/light containers */
+.container, .container-fluid,
+.row, .col {
+  background-color: transparent !important;
+}
+
+/* Bootstrap form controls dark override */
+.form-control,
+.form-select,
+.custom-select {
+  background-color: var(--ap-bg) !important;
+  border-color: var(--ap-border) !important;
+  color: var(--ap-text) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--ap-bg) !important;
+  border-color: var(--ap-accent) !important;
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.1) !important;
+  color: var(--ap-text) !important;
+}
+
+/* Bootstrap navbar overrides */
+.navbar, nav[class*="Header"] {
+  background: var(--ap-surface) !important;
+  border-color: var(--ap-border) !important;
+}
+
+/* Ensure no bootstrap white leaks in body descendants */
+body .ap-layout,
+body .ap-main,
+body .ap-content {
+  background: var(--ap-bg) !important;
+}
+
+@media (max-width: 768px) {
+  .ap-main { padding-left: 0; }
+}
+
+/* ── Top Bar ─── */
+.ap-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: var(--ap-surface);
+  border-bottom: 1px solid var(--ap-border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  min-height: 57px;
+}
+
+.ap-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ap-topbar-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ap-text);
+  letter-spacing: -0.01em;
+}
+
+.ap-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ap-clock {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ap-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── System Status Pill ─── */
+.ap-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ap-green);
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.18);
+  border-radius: var(--ap-radius-pill);
+}
+
+.ap-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ap-green);
+  animation: ap-pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes ap-pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+  50%      { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+}
+
+/* ── Content Area ─── */
+.ap-content {
+  padding: 24px 28px;
+  flex: 1;
+}
+
+/* ── Metric Cards Row ─── */
+.ap-metrics {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1200px) {
+  .ap-metrics { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .ap-metrics { grid-template-columns: repeat(2, 1fr); }
+}
+
+.ap-metric {
+  position: relative;
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius);
+  padding: 20px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.ap-metric:hover {
+  border-color: var(--ap-border-2);
+  transform: translateY(-2px);
+}
+
+/* Colored top-border accents per card */
+.ap-metric.green  { border-top: 3px solid var(--ap-green); }
+.ap-metric.amber  { border-top: 3px solid var(--ap-amber); }
+.ap-metric.blue   { border-top: 3px solid var(--ap-blue); }
+.ap-metric.purple { border-top: 3px solid var(--ap-purple); }
+.ap-metric.pink   { border-top: 3px solid var(--ap-pink); }
+
+.ap-metric-icon {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 22px;
+  opacity: 0.2;
+}
+
+.ap-metric-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ap-text-muted);
+  margin-bottom: 6px;
+  text-transform: none;
+}
+
+.ap-metric-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ap-text);
+  line-height: 1.1;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.ap-metric-sub {
+  font-size: 11px;
+  color: var(--ap-text-dim);
+}
+
+/* ── Card Component ─── */
+.ap-card {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.ap-card:hover {
+  border-color: var(--ap-border-2);
+}
+
+.ap-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--ap-border);
+}
+
+.ap-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ap-text);
+}
+
+.ap-card-badge {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ap-text-dim);
+  background: rgba(255,255,255,0.04);
+  padding: 4px 10px;
+  border-radius: var(--ap-radius-pill);
+  border: 1px solid var(--ap-border);
+}
+
+.ap-card-body {
+  padding: 20px;
+}
+
+/* ── 2-Column Grid ─── */
+.ap-grid-2 {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1000px) {
+  .ap-grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ── Map Wrapper ─── */
+.ap-map-wrap {
+  height: 380px;
+  min-height: 350px;
+  border-radius: var(--ap-radius-sm);
+  overflow: hidden;
+  background: #1a1f2e;
+}
+
+.ap-map-wrap > div,
+.ap-map-wrap .leaflet-container,
+.ap-map-wrap .gm-style {
+  height: 100% !important;
+  min-height: 350px !important;
+  width: 100% !important;
+  border-radius: var(--ap-radius-sm);
+}
+
+/* ── Live Feed ─── */
+.ap-feed {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.ap-feed::-webkit-scrollbar { width: 4px; }
+.ap-feed::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+}
+
+.ap-feed-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--ap-border);
+  transition: background 0.15s ease;
+}
+
+.ap-feed-item:last-child { border-bottom: none; }
+.ap-feed-item:hover { background: rgba(255,255,255,0.02); }
+
+/* ── Avatar ─── */
+.ap-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* ── Status Pills ─── */
+.ap-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--ap-radius-pill);
+  white-space: nowrap;
+}
+
+.ap-pill-green {
+  background: rgba(34,197,94,0.12);
+  color: #4ade80;
+  border: 1px solid rgba(34,197,94,0.2);
+}
+
+.ap-pill-amber {
+  background: rgba(245,158,11,0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245,158,11,0.2);
+}
+
+.ap-pill-red {
+  background: rgba(239,68,68,0.12);
+  color: #f87171;
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+.ap-pill-blue {
+  background: rgba(59,130,246,0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(59,130,246,0.2);
+}
+
+.ap-pill-purple {
+  background: rgba(139,92,246,0.12);
+  color: #a78bfa;
+  border: 1px solid rgba(139,92,246,0.2);
+}
+
+.ap-pill-cyan {
+  background: rgba(6,182,212,0.12);
+  color: #22d3ee;
+  border: 1px solid rgba(6,182,212,0.2);
+}
+
+.ap-pill-gray {
+  background: rgba(148,163,184,0.1);
+  color: #94a3b8;
+  border: 1px solid rgba(148,163,184,0.15);
+}
+
+/* ── Table ─── */
+.ap-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ap-table thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #1a1f2e;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: sticky;
+  top: 0;
+  white-space: nowrap;
+}
+
+.ap-table tbody tr {
+  transition: background 0.12s ease;
+  background: var(--ap-surface);
+}
+
+.ap-table tbody tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.ap-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: #e5e7eb;
+  vertical-align: middle;
+}
+
+/* ── Table Overflow Wrapper ─── */
+.ap-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* ── Buttons ─── */
+.ap-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 8px 16px;
+  border-radius: var(--ap-radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ap-btn-primary {
+  background: var(--ap-accent);
+  color: #000;
+}
+
+.ap-btn-primary:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245,158,11,0.3);
+}
+
+.ap-btn-ghost {
+  background: rgba(255,255,255,0.04);
+  color: var(--ap-text-muted);
+  border: 1px solid var(--ap-border);
+}
+
+.ap-btn-ghost:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--ap-text);
+}
+
+/* ── Search Input ─── */
+.ap-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1e2535;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--ap-radius-sm);
+  padding: 0 14px;
+  transition: border-color 0.2s ease;
+}
+
+.ap-search:focus-within {
+  border-color: var(--ap-accent);
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
+}
+
+.ap-search svg {
+  color: var(--ap-text-dim);
+  flex-shrink: 0;
+}
+
+.ap-search input {
+  flex: 1;
+  background: transparent !important;
+  border: none !important;
+  color: #e5e7eb !important;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  padding: 10px 0;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.ap-search input::placeholder {
+  color: #4b5563;
+}
+
+/* ── Dark Select/Dropdown ─── */
+.ap-select,
+select.ap-btn-ghost,
+select.ap-btn {
+  background: #1e2535 !important;
+  color: #e5e7eb !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 8px !important;
+  padding: 8px 32px 8px 12px !important;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  cursor: pointer;
+  outline: none;
+}
+
+.ap-select option,
+select.ap-btn-ghost option,
+select.ap-btn option {
+  background: #1e2535;
+  color: #e5e7eb;
+}
+
+/* ── Filter Tabs ─── */
+.ap-filter-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.ap-filter-tab {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  padding: 6px 14px;
+  border-radius: var(--ap-radius-pill);
+  border: 1px solid var(--ap-border);
+  background: transparent;
+  color: var(--ap-text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ap-filter-tab:hover {
+  background: rgba(255,255,255,0.04);
+  color: var(--ap-text);
+}
+
+.ap-filter-tab.active {
+  background: var(--ap-accent-dim);
+  color: var(--ap-accent);
+  border-color: rgba(245,158,11,0.25);
+  font-weight: 600;
+}
+
+/* ── Ride Cards Grid ─── */
+.ap-ride-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+.ap-ride-card {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius);
+  padding: 16px 18px;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.ap-ride-card:hover {
+  border-color: var(--ap-border-2);
+  transform: translateY(-1px);
+}
+
+/* ── Dropdown ─── */
+.ap-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.ap-dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 100;
+  background: var(--ap-surface-2);
+  border: 1px solid var(--ap-border-2);
+  border-radius: var(--ap-radius-sm);
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+  animation: ap-dropdown-in 0.12s ease;
+}
+
+@keyframes ap-dropdown-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ap-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ap-text);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.12s ease;
+}
+
+.ap-dropdown-item:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.ap-dropdown-item.danger {
+  color: var(--ap-red);
+}
+
+.ap-dropdown-item.danger:hover {
+  background: rgba(239,68,68,0.08);
+}
+
+/* ── Empty State ─── */
+.ap-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.ap-empty-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.ap-empty h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ap-text-muted) !important;
+  margin: 0 0 6px;
+}
+
+.ap-empty p {
+  font-size: 13px;
+  color: var(--ap-text-dim);
+  margin: 0;
+}
+
+/* ── Global Typography Overrides ─── */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ap-text) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.14); }
+
+
+
+/* ── Spin Animation ─── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spin { animation: spin 1s linear infinite; }
+
+/* ── Responsive ─── */
+@media (max-width: 640px) {
+  .ap-content { padding: 16px; }
+  .ap-topbar { padding: 12px 16px; }
+  .ap-topbar-title { font-size: 15px; }
+  .ap-ride-grid { grid-template-columns: 1fr; }
+}

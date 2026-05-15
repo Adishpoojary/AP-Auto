@@ -1,0 +1,169 @@
+/* Light theme typography and contrast — applies ONLY when .operations-light-dashboard is present.
+   Dark theme (.operations-dark-dashboard) is unchanged. */
+
+.operations-light-dashboard {
+  color: #111827;
+  line-height: 1.5;
+}
+
+/* Dashboard title */
+.operations-light-dashboard h1 {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+/* Section titles: Booking Overview, Trips Overview, etc. */
+.operations-light-dashboard [class*="widget"] header,
+.operations-light-dashboard [class*="widget"] h5,
+.operations-light-dashboard [class*="widget"] .widget-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+  line-height: 1.5;
+}
+
+/* Replace light grey text with readable colors — do NOT use #9CA3AF or lighter */
+.operations-light-dashboard .text-muted {
+  color: #6B7280 !important;
+}
+
+.operations-light-dashboard .text-dark {
+  color: #111827 !important;
+}
+
+/* Secondary text (labels, breadcrumb, etc.) */
+.operations-light-dashboard .breadcrumb-item,
+.operations-light-dashboard .breadcrumb-item.active {
+  color: #374151 !important;
+}
+
+/* ─── KPI cards (top row) ─── */
+.operations-light-dashboard .ops-kpi-container [class*="widget"] {
+  padding: 18px 20px !important;
+}
+
+.operations-light-dashboard .metric-card-title {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  line-height: 1.5;
+}
+
+.operations-light-dashboard .metric-card-value {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  line-height: 1.5;
+}
+
+/* ─── Widget cards: labels and values in tables (Booking, Trips, Customer, Fleet, etc.) ─── */
+.operations-light-dashboard [class*="widget"] {
+  color: #111827;
+}
+
+.operations-light-dashboard [class*="widget"] table td {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1F2937;
+}
+
+.operations-light-dashboard [class*="widget"] table td.text-muted {
+  color: #374151 !important;
+  font-weight: 500;
+}
+
+.operations-light-dashboard [class*="widget"] table .font-weight-bold {
+  color: #111827;
+  font-weight: 700;
+}
+
+/* Table headers (e.g. Active Trips) */
+.operations-light-dashboard .active-trips-panel thead th,
+.operations-light-dashboard [class*="widget"] table thead th {
+  font-weight: 600 !important;
+  color: #111827 !important;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.operations-light-dashboard .active-trips-panel thead th.text-muted {
+  color: #374151 !important;
+}
+
+/* Table body rows */
+.operations-light-dashboard .active-trips-panel tbody td,
+.operations-light-dashboard [class*="widget"] table tbody td {
+  font-size: 1rem;
+  color: #1F2937;
+  line-height: 1.5;
+}
+
+/* Activity feed, escalations, reports, revenue — consistent secondary text */
+.operations-light-dashboard [class*="widget"] .text-muted,
+.operations-light-dashboard [class*="widget"] small.text-muted {
+  color: #6B7280 !important;
+}
+
+.operations-light-dashboard [class*="widget"] .font-weight-bold {
+  color: #111827;
+}
+
+/* Card padding for readability */
+.operations-light-dashboard [class*="widget"] {
+  padding: 18px 20px !important;
+}
+
+/* Last Updated / refresh area in header */
+.operations-light-dashboard .d-flex.align-items-center span {
+  color: #374151;
+}
+
+/* Trips Ongoing panel (drawer) — light mode */
+.operations-light-dashboard .ongoing-panel-trips {
+  color: #1f2937;
+}
+.operations-light-dashboard .ongoing-panel-thead th {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding: 10px 12px;
+}
+.operations-light-dashboard .ongoing-panel-live-table tbody td {
+  color: #1e293b;
+  vertical-align: middle;
+  border-bottom: 1px solid #f1f5f9 !important;
+  padding: 10px 12px;
+}
+.operations-light-dashboard .ongoing-panel-live-table tbody tr:hover td {
+  background: #f8fafc !important;
+}
+.operations-light-dashboard .ongoing-panel-trips .text-muted {
+  color: #64748b !important;
+}
+.operations-light-dashboard .ongoing-panel-trips .font-weight-bold {
+  color: #0f172a !important;
+}
+.operations-light-dashboard .ongoing-panel-trips .badge-primary {
+  background: #2563eb !important;
+  color: #fff !important;
+}
+.operations-light-dashboard .ongoing-panel-trips .badge-danger {
+  background: #dc2626 !important;
+  color: #fff !important;
+}
+.operations-light-dashboard .ongoing-panel-trips .text-success {
+  color: #16a34a !important;
+}
+.operations-light-dashboard .ongoing-panel-trips .text-danger {
+  color: #dc2626 !important;
+}
+
+/* Match Trip Escalations idle badge pulse (global name for inline animation on Booking Overview). */
+@keyframes opsIdleDriversPulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}

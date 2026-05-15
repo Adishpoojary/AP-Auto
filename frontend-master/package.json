@@ -1,0 +1,72 @@
+{
+  "name": "react-dashboard-frontend",
+  "version": "1.5.0",
+  "private": true,
+  "dependencies": {
+    "@react-google-maps/api": "^2.20.7",
+    "assert": "^2.1.0",
+    "awesome-bootstrap-checkbox": "^1.0.1",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.5.2",
+    "bootstrap-icons": "^1.13.1",
+    "buffer": "^6.0.3",
+    "classnames": "^2.3.2",
+    "crypto-browserify": "^3.12.0",
+    "font-awesome": "^4.7.0",
+    "https-browserify": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "leaflet": "^1.9.4",
+    "leaflet.heat": "^0.2.0",
+    "lucide-react": "^0.545.0",
+    "os-browserify": "^0.3.0",
+    "process": "^0.11.10",
+    "prop-types": "^15.8.1",
+    "react": "^18.0.0",
+    "react-bootstrap-icons": "^1.11.4",
+    "react-datepicker": "^8.8.0",
+    "react-dom": "^18.0.0",
+    "react-leaflet": "^4.2.1",
+    "react-redux": "^7.2.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-sparklines": "^1.7.0",
+    "react-toastify": "^5.4.1",
+    "reactstrap": "^8.6.0",
+    "recharts": "^2.15.4",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.77.8",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "util": "^0.12.5",
+    "uuid": "^8.3.2",
+    "vm-browserify": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "react-app-rewired": "^2.2.1",
+    "react-scripts": "^5.0.1"
+  }
+}

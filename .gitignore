@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+*.egg
+.eggs/
+venv/
+env/
+.venv/
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Firebase key (SECRET — never commit!)
+firebase-key.json
+
+# Node
+node_modules/
+npm-debug.log
+yarn-debug.log
+package-lock.json
+
+# React build output
+build/
+build.tar.gz
+
+# React Native / Expo
+android/app/build/
+ios/Pods/
+*.keystore
+.expo/
+
+# Database
+*.sqlite
+
+# Archives
+_archive_old_backends/
+
+# Old/legacy projects (not part of active AP Autos)
+customer-master/
+driver-app-master/
+
+# Google Credentials (SECRET)
+**/google_creds.json

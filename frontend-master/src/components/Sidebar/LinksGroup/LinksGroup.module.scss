@@ -1,0 +1,110 @@
+@import '../../../styles/app';
+
+.headerLink {
+  list-style: none;
+  margin: 2px 12px;
+
+  a {
+    display: flex;
+    color: #94a3b8;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: all 0.2s ease;
+  }
+
+  > a {
+    position: relative;
+    padding: 0 14px;
+    line-height: 44px;
+    justify-content: flex-start;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.04);
+      color: #e2e8f0;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      gap: 10px;
+    }
+
+    img {
+      width: 15px;
+      margin-right: 12px;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.arrow {
+  color: #475569;
+  transition: 0.3s;
+  right: 0;
+}
+
+.arrowActive {
+  transform: rotate(-90deg);
+}
+
+.headerLinkActive {
+  background: rgba(245, 158, 11, 0.08) !important;
+  border-left: 3px solid #f59e0b;
+
+  span {
+    color: #f59e0b !important;
+    font-weight: 700;
+  }
+}
+
+.opsMap {
+  margin-top: 4px;
+  border-radius: 10px;
+}
+
+.panel {
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.15);
+
+  div {
+    padding: 0;
+  }
+
+  ul {
+    padding-left: 0;
+    font-size: 0.82rem;
+
+    li {
+      padding: 2px 0;
+      list-style: none;
+    }
+
+    a {
+      padding: 6px 20px 6px 44px;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.04);
+        color: #e2e8f0;
+      }
+    }
+  }
+}

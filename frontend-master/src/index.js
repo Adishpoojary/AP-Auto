@@ -13,6 +13,7 @@ import reducers from './reducers';
 
 axios.defaults.baseURL = config.baseURLApi;
 axios.defaults.headers.common['Content-Type'] = "application/json";
+axios.defaults.headers.common['ngrok-skip-browser-warning'] = "69420";
 const token = localStorage.getItem('token') || localStorage.getItem('id_token');
 if (token) {
     axios.defaults.headers.common['Authorization'] = "Bearer " + token;
